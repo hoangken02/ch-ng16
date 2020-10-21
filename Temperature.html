@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(c) {
+            this.c = c;
+        }
+        getF(){
+            return this.c * 9/5 + 3/2;
+        }
+        getK(){
+            return this.c - 273;
+        }
+    }
+    let temperature = new Temperature(25);
+    alert("do F la: " + temperature.getF() + ",do K la: " +temperature.getK());
+
+</script>
+</body>
+</html>

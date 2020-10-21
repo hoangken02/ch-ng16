@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+<canvas id="myRectangle" width="500px" height="500px" style="border: solid #d3d3d3"></canvas>
+<input type="number" id="width" placeholder="width"><br>
+<input type="number" id="height" placeholder="height"><br>
+<button onclick="createRectangle()">Draw</button>
+<table id=""></table>
+<br>
+<p id="result"></p>
+<script>
+    let result = document.getElementById("result");
+    class Rectangle {
+        constructor(height,width) {
+            this.height = height;
+            this.width = width;
+        }
+        getArea(){
+            return this.height * this.width;
+        }
+        getPerimeter(){
+            return (this.height + this.width) * 2;
+        }
+    }
+    function createRectangle() {
+        let width = document.getElementById("width").value;
+        let height = document.getElementById("height").value;
+        let create = document.getElementById("myRectangle");
+        let ctx = create.getContext("2d");
+        ctx.clearRect(0,0,create.width, create.height);
+        let rectangle = new Rectangle(width,height);
+        ctx.beginPath();
+        ctx.rect(2,2,rectangle.width,rectangle.height);
+        ctx.fill();
+        result.innerHTML = 'Perimeter: ' + rectangle.getPerimeter() + '<br>' + 'Area' + rectangle.getArea();
+    }
+</script>
+</body>
+</html>
